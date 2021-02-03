@@ -36,6 +36,7 @@
 		FAAD1B0425C86CEE006D69C4 /* OTDiningModeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD1B0325C86CEE006D69C4 /* OTDiningModeTableViewDataSource.swift */; };
 		FAAD1B0A25CA648D006D69C4 /* OTReservationImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD1B0925CA648D006D69C4 /* OTReservationImageHelpers.swift */; };
 		FAAD1B0E25CAF73F006D69C4 /* OTRestaurantDishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD1B0D25CAF73F006D69C4 /* OTRestaurantDishView.swift */; };
+		FAAD1B1725CB2AAB006D69C4 /* OTRestaurantDishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD1B1625CB2AAB006D69C4 /* OTRestaurantDishViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		FAAD1B0325C86CEE006D69C4 /* OTDiningModeTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTDiningModeTableViewDataSource.swift; sourceTree = "<group>"; };
 		FAAD1B0925CA648D006D69C4 /* OTReservationImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTReservationImageHelpers.swift; sourceTree = "<group>"; };
 		FAAD1B0D25CAF73F006D69C4 /* OTRestaurantDishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTRestaurantDishView.swift; sourceTree = "<group>"; };
+		FAAD1B1625CB2AAB006D69C4 /* OTRestaurantDishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTRestaurantDishViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,11 +236,9 @@
 			isa = PBXGroup;
 			children = (
 				FAAD1AEB25C86607006D69C4 /* OTDiningModeCardService.swift */,
-				FAAD1AF125C869BB006D69C4 /* OTReservationAddressTableViewCell.swift */,
-				FAAD1AF225C869BB006D69C4 /* OTReservationAddressTableViewCell.xib */,
+				FAAD1B1425CB2A8E006D69C4 /* AddressView */,
 				FAAD1B1325CB2A39006D69C4 /* DishesView */,
-				FAAD1AFD25C86AE2006D69C4 /* OTReservationBasicsTableViewCell.swift */,
-				FAAD1AFE25C86AE2006D69C4 /* OTReservationBasicsTableViewCell.xib */,
+				FAAD1B1525CB2A98006D69C4 /* BasicInfo */,
 			);
 			name = Cards;
 			sourceTree = "<group>";
@@ -249,8 +249,27 @@
 				FAAD1AF725C86ACB006D69C4 /* OTReservationReviewTableViewCell.swift */,
 				FAAD1AF825C86ACB006D69C4 /* OTReservationReviewTableViewCell.xib */,
 				FAAD1B0D25CAF73F006D69C4 /* OTRestaurantDishView.swift */,
+				FAAD1B1625CB2AAB006D69C4 /* OTRestaurantDishViewModel.swift */,
 			);
 			name = DishesView;
+			sourceTree = "<group>";
+		};
+		FAAD1B1425CB2A8E006D69C4 /* AddressView */ = {
+			isa = PBXGroup;
+			children = (
+				FAAD1AF125C869BB006D69C4 /* OTReservationAddressTableViewCell.swift */,
+				FAAD1AF225C869BB006D69C4 /* OTReservationAddressTableViewCell.xib */,
+			);
+			name = AddressView;
+			sourceTree = "<group>";
+		};
+		FAAD1B1525CB2A98006D69C4 /* BasicInfo */ = {
+			isa = PBXGroup;
+			children = (
+				FAAD1AFD25C86AE2006D69C4 /* OTReservationBasicsTableViewCell.swift */,
+				FAAD1AFE25C86AE2006D69C4 /* OTReservationBasicsTableViewCell.xib */,
+			);
+			name = BasicInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +431,7 @@
 				FAAD1AD125C62A9D006D69C4 /* OTDiningModeViewController.swift in Sources */,
 				FAAD1AEC25C86607006D69C4 /* OTDiningModeCardService.swift in Sources */,
 				FAAD1B0A25CA648D006D69C4 /* OTReservationImageHelpers.swift in Sources */,
+				FAAD1B1725CB2AAB006D69C4 /* OTRestaurantDishViewModel.swift in Sources */,
 				0095732F1DF2252F003412B9 /* ReservationAssembler.swift in Sources */,
 				FAAD1AF925C86ACB006D69C4 /* OTReservationReviewTableViewCell.swift in Sources */,
 			);
