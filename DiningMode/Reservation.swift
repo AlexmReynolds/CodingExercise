@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 import UIKit
 import CoreGraphics
-
+import Contacts
 struct PhotoSize {
 	public let width: Int
 	public let height: Int
@@ -84,6 +84,24 @@ struct Restaurant {
 	
 	let profilePhoto: Photo?
 	let dishes: [Dish]
+    
+  
+}
+
+//helpers
+extension Restaurant {
+    func hasAddress() -> Bool {
+        return (self.street.count > 0 && self.state.count > 0 && self.city.count > 0 && self.zip.count > 0 )
+
+    }
+    func postalAddress() -> CNPostalAddress {
+        let address = CNMutablePostalAddress()
+        address.street = self.street
+        address.state = self.state
+        address.city = self.city
+        address.postalCode = self.zip
+        return address
+    }
 }
 
 struct Reservation {
@@ -96,4 +114,21 @@ struct Reservation {
 	let partySize: Int
 	
 	let confirmationMessage: String?
+}
+
+extension Reservation {
+    func localTimeString(formatter:DateFormatter) -> String {
+        formatter.dateFormat = "EEEE MMM dd hh:mm"
+        return formatter.string(from: self.localDate)
+    }
+}
+
+extension Snippet {
+    func getAttributedContent() -> NSAttributedString {
+        let attr = NSMutableAttributedString(string: self.content, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0, weight: .regular)])
+        for range in self.highlights {
+            attr.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 14.0, weight: .bold), range: range)
+        }
+        return attr
+    }
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="195" id="KGk-i7-Jjw" customClass="OTReservationAddressTableViewCell" customModule="DiningMode" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="195"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="195"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UrB-jy-acI">
+                        <rect key="frame" x="8" y="8" width="304" height="179"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bsn-d1-hkL">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Z5I-wi-0a2"/>
+                                </constraints>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udu-8q-9hG">
+                                <rect key="frame" x="16" y="136" width="215" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3p-oj-lfu">
+                                <rect key="frame" x="247" y="135.5" width="41" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="directionsTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pb7-9b-o0f"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="udu-8q-9hG" firstAttribute="leading" secondItem="UrB-jy-acI" secondAttribute="leading" constant="16" id="057-2F-Uj0"/>
+                            <constraint firstItem="bsn-d1-hkL" firstAttribute="top" secondItem="UrB-jy-acI" secondAttribute="top" id="2Xs-cb-FIo"/>
+                            <constraint firstItem="G3p-oj-lfu" firstAttribute="centerY" secondItem="udu-8q-9hG" secondAttribute="centerY" id="Bjd-CO-IMT"/>
+                            <constraint firstItem="G3p-oj-lfu" firstAttribute="leading" secondItem="udu-8q-9hG" secondAttribute="trailing" constant="16" id="IWp-T7-Bpd"/>
+                            <constraint firstItem="bsn-d1-hkL" firstAttribute="leading" secondItem="UrB-jy-acI" secondAttribute="leading" id="NCR-J7-gyV"/>
+                            <constraint firstAttribute="trailing" secondItem="G3p-oj-lfu" secondAttribute="trailing" constant="16" id="TzW-4c-cty"/>
+                            <constraint firstAttribute="bottom" secondItem="udu-8q-9hG" secondAttribute="bottom" constant="16" id="ZUE-qo-wm3"/>
+                            <constraint firstItem="udu-8q-9hG" firstAttribute="top" secondItem="bsn-d1-hkL" secondAttribute="bottom" constant="16" id="xWG-o1-ARE"/>
+                            <constraint firstAttribute="trailing" secondItem="bsn-d1-hkL" secondAttribute="trailing" id="yKZ-z6-qmK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="UrB-jy-acI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="FGS-DV-Avh"/>
+                    <constraint firstAttribute="bottom" secondItem="UrB-jy-acI" secondAttribute="bottom" constant="8" id="UhK-tG-xzu"/>
+                    <constraint firstAttribute="trailing" secondItem="UrB-jy-acI" secondAttribute="trailing" constant="8" id="YN5-TG-jPZ"/>
+                    <constraint firstItem="UrB-jy-acI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="pdU-6J-weE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="directionsButton" destination="G3p-oj-lfu" id="dnS-uB-YH4"/>
+                <outlet property="mapView" destination="bsn-d1-hkL" id="99f-Mu-32L"/>
+                <outlet property="streetLabel" destination="udu-8q-9hG" id="eix-7g-wEu"/>
+                <outlet property="wrapperView" destination="UrB-jy-acI" id="2Be-UD-d0W"/>
+            </connections>
+            <point key="canvasLocation" x="-171.01449275362319" y="116.18303571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
