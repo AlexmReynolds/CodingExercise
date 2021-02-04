@@ -21,7 +21,7 @@ extension Photo {
                     let error = NSError(domain: "com.opentable", code: 400, userInfo: [NSLocalizedDescriptionKey: "No photo"])
                     completion(.failure(error))
                 }
-            }
+            }.resume()
 
         } else {
             let error = NSError(domain: "com.opentable", code: 400, userInfo: [NSLocalizedDescriptionKey: "No photo"])

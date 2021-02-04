@@ -23,6 +23,7 @@ class OTReservationAddressTableViewCell: UITableViewCell {
         self.directionsButton.setTitle(NSLocalizedString("Directions", comment: "directions button title"), for: .normal)
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
+        self.mapView.isUserInteractionEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -44,18 +44,20 @@ class OTRestaurantDishView : UIView {
         self.snippetLabel.font = UIFont.systemFont(ofSize: 14.0,weight: .regular)
         
         self.nameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        self.snippetLabel.numberOfLines = 0
         
         //Add constraints
+        self.imageView.heightAnchor.constraint(equalToConstant: 120.0).isActive = true
         self.imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant:16).isActive = true
         self.imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant:-16).isActive = true
         self.imageView.topAnchor.constraint(equalTo: self.topAnchor, constant:16).isActive = true
 
-        self.imageView.bottomAnchor.constraint(equalTo: self.nameLabel.topAnchor, constant:16).isActive = true
+        self.imageView.bottomAnchor.constraint(equalTo: self.nameLabel.topAnchor, constant:-4).isActive = true
 
         self.nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant:16).isActive = true
         self.nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant:-16).isActive = true
 
-        self.nameLabel.bottomAnchor.constraint(equalTo: self.snippetLabel.topAnchor, constant:16).isActive = true
+        self.nameLabel.bottomAnchor.constraint(equalTo: self.snippetLabel.topAnchor, constant:-4).isActive = true
 
         self.snippetLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant:16).isActive = true
         self.snippetLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant:-16).isActive = true

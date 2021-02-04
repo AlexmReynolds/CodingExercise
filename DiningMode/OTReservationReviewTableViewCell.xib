@@ -14,29 +14,34 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="258" id="KGk-i7-Jjw" customClass="OTReservationReviewTableViewCell" customModule="DiningMode" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="258"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="258"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pw5-gs-V5T">
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pw5-gs-V5T">
                         <rect key="frame" x="8" y="8" width="304" height="242"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Bd-KM-2Ne">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Bd-KM-2Ne">
                                 <rect key="frame" x="32" y="57" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="ILG-Xh-eCc"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="0nY-IY-hrp"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="vDm-d4-qXi"/>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="rC6-4d-U5E">
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="rC6-4d-U5E">
                                 <rect key="frame" x="90.5" y="198" width="123" height="28"/>
+                                <color key="pageIndicatorTintColor" systemColor="linkColor"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="rC6-4d-U5E" secondAttribute="bottom" constant="16" id="C4Z-U0-E3G"/>
+                            <constraint firstAttribute="bottom" secondItem="rC6-4d-U5E" secondAttribute="bottom" constant="4" id="C4Z-U0-E3G"/>
                             <constraint firstItem="0Bd-KM-2Ne" firstAttribute="top" secondItem="pw5-gs-V5T" secondAttribute="top" id="J34-wK-QpJ"/>
                             <constraint firstItem="0Bd-KM-2Ne" firstAttribute="leading" secondItem="pw5-gs-V5T" secondAttribute="leading" id="KsZ-L2-eXl"/>
                             <constraint firstAttribute="trailing" secondItem="0Bd-KM-2Ne" secondAttribute="trailing" id="R97-NS-b4s"/>
-                            <constraint firstAttribute="bottom" secondItem="0Bd-KM-2Ne" secondAttribute="bottom" id="aFM-Jg-Qli"/>
+                            <constraint firstAttribute="bottom" secondItem="0Bd-KM-2Ne" secondAttribute="bottom" constant="10" id="aFM-Jg-Qli"/>
                             <constraint firstItem="rC6-4d-U5E" firstAttribute="centerX" secondItem="pw5-gs-V5T" secondAttribute="centerX" id="km9-te-gWs"/>
                         </constraints>
                     </view>
@@ -58,8 +63,14 @@
         </tableViewCell>
     </objects>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

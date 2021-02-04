@@ -41,14 +41,41 @@ class OTDiningModeViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 120.0
+        self.tableView.isUserInteractionEnabled = true
     }
 
+    func didExpandToFullScreen() {
+        let downChevron = UIImage(cgImage: UIImage(named:"chevron_up_icon")!.cgImage!, scale: UIScreen.main.scale, orientation: .down).withRenderingMode(.alwaysTemplate)
+        self.chevronImageView.image = downChevron
+
+        //For now do as check on dishes but I assume some restaurants may always have 0 dishes
+        if (self.viewModel.reservation.restaurant.dishes.isEmpty) {
+            OTAPI.shared.getFullReservations { (result) in
+                switch result {
+                case .failure(let error)://Could do something here depending on the error
+                    print(error)
+                case .success(let reservation):
+                    
+                    let newModel = OTDiningModeViewModel(reservation: reservation)
+                    DispatchQueue.main.async {
+                        self.updateViewModel(with: newModel)
+                    }
+                }
+            }
+        }
+    }
     
+    func didCollapseToBannerMode() {
+        let upChevron = UIImage(named:"chevron_up_icon")?.withRenderingMode(.alwaysTemplate)
+        self.chevronImageView.image = upChevron
+    }
 
     func updateViewModel(with model: OTDiningModeViewModel) {
         self.viewModel = model
         self.previewLabel.text = model.bannerText
         self.tableDataSource = OTDiningModeTableViewDataSource(reservation: self.viewModel.reservation, items: self.viewModel.tableItems)
+        self.tableView.dataSource = self.tableDataSource
+        self.tableView.reloadData()
     }
 }
 

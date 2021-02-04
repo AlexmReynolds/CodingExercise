@@ -13,11 +13,13 @@ class OTReservationReviewTableViewCell: UITableViewCell {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var wrapperView: UIView!
+    var dishViews : [OTRestaurantDishView] = []
     override func awakeFromNib() {
         super.awakeFromNib()
 
         self.wrapperView.layer.cornerRadius = 4.0
         self.wrapperView.clipsToBounds = true
+        self.scrollView.delegate = self
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
         
@@ -30,12 +32,34 @@ class OTReservationReviewTableViewCell: UITableViewCell {
     
 }
 
+extension OTReservationReviewTableViewCell : UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageWidth:CGFloat = scrollView.frame.width
+        let currentPageFloat:CGFloat = floor((scrollView.contentOffset.x - pageWidth/2) / pageWidth) + 1
+        let currentPage = Int(currentPageFloat)
+        if (self.pageControl.currentPage != currentPage) {
+            if (self.dishViews.count > Int(currentPage)) {
+                let view = self.dishViews[currentPage]
+                view.viewModel.fetchImageIfNeeded()
+            }
+        }
+        self.pageControl.currentPage = currentPage
+
+    }
+}
 extension OTReservationReviewTableViewCell : OTDiningModeCardCell {
     func configure(for reservation: Reservation) {
+        //First clean up any old views
+        for view in self.dishViews {
+            view.removeFromSuperview()
+        }
+        self.dishViews = []
+        
+        
         let pageCount = min(3, reservation.restaurant.dishes.count)
         let dishes = reservation.restaurant.dishes.prefix(pageCount)
         self.pageControl.numberOfPages = pageCount
-        self.pageControl.currentPage = 1
+        self.pageControl.currentPage = 0
         
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         
@@ -63,7 +87,11 @@ extension OTReservationReviewTableViewCell : OTDiningModeCardCell {
             if (index == 0) {//start loading the first image
                 dishModel.fetchImageIfNeeded()
             }
+            
+            dishView.nameLabel.text = dishModel.name
+            dishView.snippetLabel.attributedText = dishModel.highlightedSnippet
             lastDishView = dishView
+            self.dishViews.append(dishView)
         }
         
     }
