@@ -18,6 +18,17 @@ class OTDiningModeViewModel {
         self.reservation = reservation
         self.bannerText = reservation.restaurant.name
         
+        //Super basic. A builder or service might be helpful for more complex logic and cards
+        
+        //This aproach makes it easy to change order and AB test
+        /*
+         
+         if (ABTest.shared.getTest(1).variant == 0) {
+            //add some card or change order
+         } else {
+         
+         }
+         */
         self.tableItems.append(.reservationBasics)
 
         if (reservation.restaurant.hasAddress()) {

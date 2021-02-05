@@ -9,6 +9,8 @@
 import UIKit
 
 extension Photo {
+    
+    //Super basic and straight forward image loading. We assume the caller calls on a bkg thread but we could add that here to prevent bad calling
     func getImage(desiredSize: CGSize, completion: @escaping ((Result<UIImage, Error>)->Void)) -> Void {
         if let url = URL(string:self.urlForSize(desiredSize: desiredSize)) {
             

@@ -10,6 +10,8 @@ import Foundation
 
 class OTAPI {
     static let shared = OTAPI()
+    
+    //Make real error codes for production and add more userInfo
     private let noJsonFileError = NSError(domain: "com.opentable", code: 400, userInfo: [NSLocalizedDescriptionKey : "No file found"])
     private let assemblerReservationError = NSError(domain: "com.opentable", code: 400, userInfo: [NSLocalizedDescriptionKey : "Cannot assemble Reservation"])
 

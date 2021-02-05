@@ -20,6 +20,15 @@ class OTDiningModeTableViewDataSource : NSObject, UITableViewDataSource {
         return self.items.count
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (section >= self.items.count) {//a little crash safety
+            return nil
+        }
+        let item = self.items[section]
+
+        return OTDiningModeCardService.sectionTitle(for: item)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

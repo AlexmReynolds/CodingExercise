@@ -23,6 +23,8 @@ let isoNoTimezoneFormatter: DateFormatter = {
 	return formatter
 }()
 
+//Codable protocol might be better to use here. This would help reduce code and make it less error prone.
+//OTHERWISE we should make all these string keys into an enum or something to prevent mistyping.
 class ReservationAssembler {
 	
 	func createReservation(_ dto: [String : Any]?) -> Reservation? {

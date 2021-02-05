@@ -15,7 +15,7 @@ class OTDiningModeCardService {
         case address
         case review
     }
-    
+    //Could simplify and put this on the CardType enum. However, with more cards and more interactions, there may be more abstraction needed in a service.
     class func cellIdentifier(for type:CardType) -> String {
         switch type {
         case .reservationBasics:
@@ -28,6 +28,18 @@ class OTDiningModeCardService {
         }
     }
     
+    
+    class func sectionTitle(for type:CardType) -> String {
+        switch type {
+        case .reservationBasics:
+            return NSLocalizedString("Reservation Info:", comment: "reservation section title")
+        case .address:
+            return NSLocalizedString("Address:", comment: "address section title")
+        case .review:
+            return NSLocalizedString("Popular Dishes:", comment: "Popular Dishes section titl")
+
+        }
+    }
     
 }
 

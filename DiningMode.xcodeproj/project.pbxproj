@@ -37,6 +37,7 @@
 		FAAD1B0A25CA648D006D69C4 /* OTReservationImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD1B0925CA648D006D69C4 /* OTReservationImageHelpers.swift */; };
 		FAAD1B0E25CAF73F006D69C4 /* OTRestaurantDishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD1B0D25CAF73F006D69C4 /* OTRestaurantDishView.swift */; };
 		FAAD1B1725CB2AAB006D69C4 /* OTRestaurantDishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD1B1625CB2AAB006D69C4 /* OTRestaurantDishViewModel.swift */; };
+		FAAD1B1B25CCCEB8006D69C4 /* OTTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD1B1A25CCCEB8006D69C4 /* OTTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		FAAD1B0925CA648D006D69C4 /* OTReservationImageHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTReservationImageHelpers.swift; sourceTree = "<group>"; };
 		FAAD1B0D25CAF73F006D69C4 /* OTRestaurantDishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTRestaurantDishView.swift; sourceTree = "<group>"; };
 		FAAD1B1625CB2AAB006D69C4 /* OTRestaurantDishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTRestaurantDishViewModel.swift; sourceTree = "<group>"; };
+		FAAD1B1A25CCCEB8006D69C4 /* OTTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 		FAAD1AD925C62D96006D69C4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FAAD1B1A25CCCEB8006D69C4 /* OTTheme.swift */,
 				FAAD1ADA25C62DA3006D69C4 /* OTDiningModeService.swift */,
 				FAAD1B0925CA648D006D69C4 /* OTReservationImageHelpers.swift */,
 				FAAD1AE025C781D6006D69C4 /* OTAPI.swift */,
@@ -427,6 +430,7 @@
 				0095732B1DF22154003412B9 /* Reservation.swift in Sources */,
 				FAAD1AFF25C86AE2006D69C4 /* OTReservationBasicsTableViewCell.swift in Sources */,
 				FAAD1AD625C62D16006D69C4 /* OTTabbarViewController.swift in Sources */,
+				FAAD1B1B25CCCEB8006D69C4 /* OTTheme.swift in Sources */,
 				FAAD1B0425C86CEE006D69C4 /* OTDiningModeTableViewDataSource.swift in Sources */,
 				FAAD1AD125C62A9D006D69C4 /* OTDiningModeViewController.swift in Sources */,
 				FAAD1AEC25C86607006D69C4 /* OTDiningModeCardService.swift in Sources */,

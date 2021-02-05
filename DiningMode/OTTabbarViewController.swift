@@ -16,6 +16,8 @@ class OTTabbarViewController: UITabBarController {
     var panLastLocation : CGPoint = .zero
 
     var bannerHeightConstraint : NSLayoutConstraint? = nil
+    
+    //Hard coded to 80. Might be better to make dynamic so if the reservation name is longer.
     private let bannerHeight : CGFloat = 80.0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,9 @@ class OTTabbarViewController: UITabBarController {
         self.addDiningModeIfNeeded()
     }
     
+    //We may not have a dining view. Future iteration might also want to add expiring the banner if the reservation is old. Also might even check the reservation date is future before adding. Also might add a filter in case we have multiple reservations so we grab the soonest first
+    
+    //For now I added as a child controller. Depending on the design I might just use a basic view for the banner and then a custom present transition to present the dining mode full screen. IDK there are libs for this as well so maybe a library might be fine. Lot's of ways to do this.
     private func addDiningModeIfNeeded() {
         OTDiningModeService.shared.upcomingReservation { (reservation) in
             if let reservation = reservation {
@@ -52,6 +57,8 @@ class OTTabbarViewController: UITabBarController {
         }
     }
     
+    //Optionally we could handle this in the view controller or some navigation helper
+    //I do like it here since the dining mode might be able to be opened without a banner.
     @objc private func bannerWasTapped() {
         guard let diningVC = self.diningModeViewController else {
             return
@@ -78,6 +85,8 @@ class OTTabbarViewController: UITabBarController {
         }
     }
     
+    //Might be useful to hide the banner as it opens. IE it could collapse and hide or something to create a cleaner dining mode full screen.
+    
     @objc private func viewWasPanned(_ gesture:UIPanGestureRecognizer) {
         guard let diningVC = self.diningModeViewController else {
             return
@@ -103,6 +112,7 @@ class OTTabbarViewController: UITabBarController {
     }
 }
 
+//Down and dirty. There could be some interaction issues or bugs needed to be fixed due to rapid panning or other untested issue like scroll up down back and forth fast
 extension OTTabbarViewController : UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let diningVC = self.diningModeViewController else {
@@ -110,12 +120,15 @@ extension OTTabbarViewController : UIGestureRecognizerDelegate {
         }
         let location = gestureRecognizer.location(in: self.view)
         let promoViewFrameInWindow = diningVC.promoView.convert(diningVC.promoView.frame, to: self.view)
+        
+        //For now lets ignore this when it's a pan outside of the banner. This prevents scrolling the dining view from triggering it. There are other ways to do this banner.
         if (promoViewFrameInWindow.contains(location)) {
             return true
         } else {
             return false
         }
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let diningVC = self.diningModeViewController, let firstTouch = touches.first else {
             return
@@ -123,7 +136,6 @@ extension OTTabbarViewController : UIGestureRecognizerDelegate {
         let location = firstTouch.location(in: self.view)
         let promoViewFrameInWindow = diningVC.promoView.convert(diningVC.promoView.frame, to: self.view)
         if (promoViewFrameInWindow.contains(location)) {
-            print("begin drag it")
             self.isDraggingDiningBanner = true
             self.panStartLocation = location
         } else {

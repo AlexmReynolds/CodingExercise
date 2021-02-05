@@ -57,12 +57,19 @@ extension OTReservationReviewTableViewCell : OTDiningModeCardCell {
         
         
         let pageCount = min(3, reservation.restaurant.dishes.count)
-        let dishes = reservation.restaurant.dishes.prefix(pageCount)
+        let dishes = Array(reservation.restaurant.dishes.prefix(pageCount))
         self.pageControl.numberOfPages = pageCount
         self.pageControl.currentPage = 0
         
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         
+        self.makeDishCards(dishes: dishes)
+    }
+    
+    //Could do some other things like use a stack view. Or this card could show them vertically. Also the snippet is long or short so either we could either use a scrollable text view or size it based on the text. IDK would depend on the designer.
+    
+    //TODO: need to add tap action maybe. Either here or a delegate method on the view. This could expand the dish review on tapping the card.
+    private func makeDishCards(dishes: [Dish]) {
         var lastDishView : UIView? = nil
         for (index, dish) in dishes.enumerated() {
             let dishModel = OTRestaurantDishViewModel(dish: dish)
@@ -84,7 +91,7 @@ extension OTReservationReviewTableViewCell : OTDiningModeCardCell {
                 dishView.trailingAnchor.constraint(equalTo: self.scrollView.contentLayoutGuide.trailingAnchor).isActive = true
             }
             
-            if (index == 0) {//start loading the first image
+            if (index == 0) {//start loading the first image. This prevents network traffic if the user never scrolls to dish 2 or 3
                 dishModel.fetchImageIfNeeded()
             }
             

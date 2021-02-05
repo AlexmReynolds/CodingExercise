@@ -88,6 +88,18 @@ struct Restaurant {
   
 }
 
+struct Reservation {
+    
+    let restaurant: Restaurant
+    
+    let utcDate: Date
+    let localDate: Date
+    
+    let partySize: Int
+    
+    let confirmationMessage: String?
+}
+
 //helpers
 extension Restaurant {
     func hasAddress() -> Bool {
@@ -104,18 +116,6 @@ extension Restaurant {
     }
 }
 
-struct Reservation {
-	
-	let restaurant: Restaurant
-	
-	let utcDate: Date
-	let localDate: Date
-	
-	let partySize: Int
-	
-	let confirmationMessage: String?
-}
-
 extension Reservation {
     func localTimeString(formatter:DateFormatter) -> String {
         formatter.dateFormat = "EEEE MMM dd hh:mm"
@@ -125,7 +125,7 @@ extension Reservation {
 
 extension Snippet {
     func getAttributedContent() -> NSAttributedString {
-        let attr = NSMutableAttributedString(string: self.content, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0, weight: .regular)])
+        let attr = NSMutableAttributedString(string: self.content, attributes: [NSAttributedString.Key.font: OTTheme.subtitleFont()])
         for range in self.highlights {
             attr.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 14.0, weight: .bold), range: range)
         }

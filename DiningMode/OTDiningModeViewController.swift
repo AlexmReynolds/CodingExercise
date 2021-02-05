@@ -70,6 +70,7 @@ class OTDiningModeViewController: UIViewController {
         self.chevronImageView.image = upChevron
     }
 
+    //Model could change if we have some service to ping current reservation every hour or so if we have a soon res.
     func updateViewModel(with model: OTDiningModeViewModel) {
         self.viewModel = model
         self.previewLabel.text = model.bannerText
@@ -79,6 +80,9 @@ class OTDiningModeViewController: UIViewController {
     }
 }
 
+//Add some actions as needed for app
 extension OTDiningModeViewController : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO: expand to full screen if needed by design. Either a simple push or an in place expand. In place expand is complex with these UIs. Super easy if just an image. I've only done this once with images vs a view with maps and labels. Easiest would possibly have these cards be child view controllers and just custom present them. Another options would be to take the full screen controller, set it's frame to the frame of the card and do a custom nav transition. This would mean the UI for the card and new controller would have to be pixel perfect. So IDK I'd have to know the design requirements then explore best option. They have Libraries for this as well.
+    }
 }

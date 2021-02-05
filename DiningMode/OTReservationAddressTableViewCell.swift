@@ -24,6 +24,9 @@ class OTReservationAddressTableViewCell: UITableViewCell {
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
         self.mapView.isUserInteractionEnabled = false
+        
+        self.streetLabel.font = OTTheme.titleFont()
+        self.streetLabel.textColor = OTTheme.cardTitleColor()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,6 +34,7 @@ class OTReservationAddressTableViewCell: UITableViewCell {
 
     }
     
+    //TODO: what about users who don't use apple maps? Maybe check if google maps is installed first, if not then use apple. Also also add a long press to address to show a copy menu so the user can copy the address might be nice for people using Uber or something. Uber API might be cool.
     @IBAction func directionsTapped(_ sender: Any) {
         guard let restaurant = self.restaurant else {
             return
@@ -59,7 +63,7 @@ extension OTReservationAddressTableViewCell : OTDiningModeCardCell {
         let formatter = CNPostalAddressFormatter()
         self.streetLabel.text = formatter.string(from: reservation.restaurant.postalAddress())
         
-        let regionDistance:CLLocationDistance = 1000
+        let regionDistance:CLLocationDistance = 1000//IDK 1000 meters might be fine for now
         let regionSpan = MKCoordinateRegion(center: reservation.restaurant.location.coordinate, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
         
         self.mapView.setRegion(regionSpan, animated: false)

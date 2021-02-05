@@ -33,6 +33,11 @@ class OTReservationBasicsTableViewCell: UITableViewCell {
         self.heroOverlay.colors = [UIColor.clear.cgColor, UIColor(white: 0.0, alpha: 0.8).cgColor]
         self.heroOverlay.startPoint = CGPoint(x:0.5,y:0.4)
         self.heroImageView.layer.addSublayer(self.heroOverlay)
+        
+        self.firstLabel.font = OTTheme.titleFont()
+        self.secondLabel.font = OTTheme.subtitleFont()
+        self.firstLabel.textColor = OTTheme.cardTitleColor()
+        self.secondLabel.textColor = OTTheme.cardSubtitleColor()
     }
     
     override func layoutSubviews() {

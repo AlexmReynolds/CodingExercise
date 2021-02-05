@@ -40,8 +40,11 @@ class OTRestaurantDishView : UIView {
         self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.snippetLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        self.nameLabel.font = UIFont.systemFont(ofSize: 16.0,weight: .medium)
-        self.snippetLabel.font = UIFont.systemFont(ofSize: 14.0,weight: .regular)
+        self.nameLabel.font = OTTheme.titleFont()
+        self.snippetLabel.font = OTTheme.subtitleFont()
+        
+        self.nameLabel.textColor = OTTheme.cardTitleColor()
+        self.snippetLabel.textColor = OTTheme.cardSubtitleColor()
         
         self.nameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
         self.snippetLabel.numberOfLines = 0
